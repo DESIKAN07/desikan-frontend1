@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Spotify-style Mock (HTML + CSS)</title>
+  <style>
+    /* Reset & base */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background:#111;
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:20px;
+    }
+
+    /* phone frame */
+    .phone{
+      width:420px;
+      max-width:95vw;
+      margin:10px auto;
+      background:black;
+      border-radius:28px;
+      padding:14px 16px 28px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    /* top status area */
+    .status{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .status .left{display:flex;align-items:center;gap:10px}
+    .avatar{width:36px;height:36px;border-radius:50%;background:#f36;color:#111;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    .tabs{display:flex;gap:10px;background:transparent;padding:6px}
+    .tab{padding:8px 14px;border-radius:26px;background:rgba(255,255,255,0.03);cursor:pointer}
+    .tab.active{background:#19d15a;color:#071107}
+
+    /* grid of cards */
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:12px 0}
+    .card{display:flex;gap:10px;align-items:center;background:rgba(255,255,255,0.03);padding:10px;border-radius:10px}
+    .card .thumb{width:56px;height:56px;border-radius:6px;background:#222;flex-shrink:0;overflow:hidden}
+    .card .thumb img{width:100%;height:100%;object-fit:cover}
+    .card .meta{font-weight:700;font-size:15px;line-height:1.05}
+
+    /* advertisement big card */
+    .ad-card{margin-top:12px;background:#222;padding:14px;border-radius:16px}
+    .ad-inner{display:flex;gap:14px;align-items:center}
+    .ad-img{flex:1;min-height:120px;border-radius:10px;overflow:hidden}
+    .ad-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .ad-cta{min-width:110px;background:transparent;padding:6px 12px;border-radius:999px;border:0;cursor:pointer;font-weight:700}
+
+    .ad-footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+
+    /* section title */
+    .section-title{margin-top:18px;font-size:20px;font-weight:800}
+
+    /* bottom nav */
+    .bottom-nav{position:relative;margin-top:18px;display:flex;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px solid rgba(255,255,255,0.03)}
+    .nav-item{display:flex;flex-direction:column;align-items:center;font-size:12px;opacity:0.9}
+
+    /* helper: small squares for thumbnails row */
+    .thumb-row{display:flex;gap:10px;margin-top:10px}
+    .small-thumb{width:138px;height:78px;border-radius:12px;overflow:hidden;background:#222}
+    .small-thumb img{width:100%;height:100%;object-fit:cover}
+
+    /* responsive for smaller screens */
+    @media (max-width:420px){
+      .phone{padding:12px}
+      .grid{gap:8px}
+      .card .thumb{width:48px;height:48px}
+    }
+  </style>
+</head>
+<body>
+  <div class="phone">
+    <div class="status">
+      <div class="left">
+        <div class="avatar">D</div>
+         <div class="nav-item">🔍<div>Search</div></div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <div class="tab active">All</div>
+          <div class="tab">Music</div>
+          <div class="tab">Movies</div>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="thumb"><img src="D:\pr certi\desi\Screenshot 2025-09-27 220057.png" alt="thumb"></div>
+        <div class="meta">Tamil love feel songs 💞 (2...)</div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="D:\pr certi\desi\suspense movie.png" alt="thumb"></div>
+        <div class="meta">SUSPENSE MOVIE</div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="D:\pr certi\desi\Screenshot 2025-09-27 220146.png" alt="thumb"></div>
+        <div class="meta">Vethala Potta Sokkula</div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="D:\pr certi\desi\horror movies.png" alt="thumb"></div>
+        <div class="meta">HORROR MOVIES</div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="D:\pr certi\desi\Screenshot 2025-09-27 220105.png" alt="thumb"></div>
+        <div class="meta">Yuvan Shankar Raja</div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="D:\pr certi\desi\action movies.png" alt="thumb"></div>
+        <div class="meta">ACTION MOVIES</div>
+      </div>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-inner">
+        <div class="ad-img">
+          <!-- exact picture provided by you used here -->
+          <img src="D:\pr certi\desi\Screenshot 2025-09-27 221422.png" alt="ad">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+          <button class="ad-cta">✕</button>
+          <button class="ad-cta">↻</button>
+        </div>
+      </div>
+      <div class="ad-footer">
+        <div style="font-weight:700">Disney Hits</div>
+        <button class="ad-cta" style="background:#fff;color:#000;border-radius:999px;padding:8px 16px">Listen now</button>
+      </div>
+    </div>
+
+    <div class="section-title">More like <span style="opacity:0.7;font-weight:600">Action Movies</span></div>
+
+    <div class="thumb-row">
+      <div class="small-thumb"><img src="D:\pr certi\desi\action 1.png" alt="s1"></div>
+      <div class="small-thumb"><img src="D:\pr certi\desi\action 2.png" alt="s2"></div>
+    </div>
+
+    <div class="bottom-nav">
+      <div class="nav-item">🏠<div>Home</div></div>
+      <div class="nav-item">📚<div>Your Library</div></div>
+      <div class="nav-item">⭐<div>Premium</div></div>
+      <div class="nav-item">➕<div>Create</div></div>
+    </div>
+
+  </div>
+</body>
+</html>
